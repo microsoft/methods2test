@@ -1,3 +1,21 @@
+Automated Unit Test Case generation has been the focus of extensive research in software engineering community. Existing approaches are usually guided by test coverage criteria and generate synthetic test cases that are often difficult to read or understand even for developers familiar with the code base. 
+
+We introduce `methods2test`: a supervised dataset consisting of Test Cases and their corresponding Focal Methods from a large set of Java software repositories. To extract `methods2test`, we first parsed the Java projects to obtain classes and methods with their associated metadata. Next we identified each Test Class and its corresponding Focal Class. Finally, for each Test Case within a Test Class, we mapped it to the related Focal Method and obtain a set of Mapped Test Cases.
+
+# Data Format
+
+The dataset is stored as JSON files of the following format:
+```
+Repository Info
+ repo_id
+ url
+ stars
+MappedTestCase (list, an entry for each Test Case)
+ Test class
+ Test Case Properties (body, signature, etc.)
+ Focal Class
+ Focal Method Properties (body, signature, etc.)
+```
 
 # Contributing
 
