@@ -5,6 +5,19 @@ The task of Automated Unit Test Case generation has been the focus of extensive 
 
 We introduce `methods2test`: a supervised dataset consisting of Test Cases and their corresponding Focal Methods from a large set of Java software repositories. To extract `methods2test`, we first parsed the Java projects to obtain classes and methods with their associated metadata. Next we identified each Test Class and its corresponding Focal Class. Finally, for each Test Case within a Test Class, we mapped it to the related Focal Method and obtain a set of Mapped Test Cases.
 
+## Accessing via Git LSF
+The repository makes use of the Git large file storage (LFS) service. Git LFS does replacing large files in the repository with tiny pointer files. To pull the actual files do:
+```bash
+# first, clone the repo
+git clone git@github.com:microsoft/methods2test.git
+# next, change to the methods2test folder
+cd methods2test
+# finally, pull the files
+git lfs pull
+```
+
+Please refer to this [web page](https://docs.microsoft.com/en-us/azure/devops/repos/git/manage-large-files?view=azure-devops) for more details about Gut LFS and working with large files.
+
 ## What is Unit Test Case?
 Unit testing is a level of software testing where individual software components are tested with a purpose of validating that each software component performs as designed. A unit is the smallest testable part of any software. In this work, we are focusing on testing Java methods.
 
