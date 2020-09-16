@@ -67,6 +67,17 @@ MappedTestCase (list, an entry for each mapped Test Case)
         class: string, a class name containing the unit test case method   
 ```
 
+# Citation
+
+@misc{tufano2020unit,
+    title={Unit Test Case Generation with Transformers},
+    author={Michele Tufano and Dawn Drain and Alexey Svyatkovskiy and Shao Kun Deng and Neel Sundaresan},
+    year={2020},
+    eprint={2009.05617},
+    archivePrefix={arXiv},
+    primaryClass={cs.SE}
+}
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
