@@ -5,7 +5,7 @@ The task of Automated Unit Test Case generation has been the focus of extensive 
 
 We introduce `methods2test`: a supervised dataset consisting of Test Cases and their corresponding Focal Methods from a large set of Java software repositories. To extract `methods2test`, we first parsed the Java projects to obtain classes and methods with their associated metadata. Next we identified each Test Class and its corresponding Focal Class. Finally, for each Test Case within a Test Class, we mapped it to the related Focal Method and obtain a set of Mapped Test Cases.
 
-## Accessing via Git LSF
+## Accessing via Git LFS
 The repository makes use of the Git large file storage (LFS) service. Git LFS does replacing large files in the repository with tiny pointer files. To pull the actual files do:
 ```bash
 # first, clone the repo
@@ -69,6 +69,7 @@ MappedTestCase (list, an entry for each mapped Test Case)
 
 # Citation
 
+```latex
 @misc{tufano2020unit,
     title={Unit Test Case Generation with Transformers},
     author={Michele Tufano and Dawn Drain and Alexey Svyatkovskiy and Shao Kun Deng and Neel Sundaresan},
@@ -77,6 +78,7 @@ MappedTestCase (list, an entry for each mapped Test Case)
     archivePrefix={arXiv},
     primaryClass={cs.SE}
 }
+```
 
 # Contributing
 
