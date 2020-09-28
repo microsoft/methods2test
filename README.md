@@ -36,7 +36,9 @@ The rationale behind this approach is the following: since we have already match
 
 
 ## Data Format
+The data is organized as `dataset` and `corpus`.
 
+The `dataset` contains test cases mapped to their corresponding focal methods, along with a rich set of metadata.
 The dataset is stored as JSON files of the following format:
 ```yaml
 Repository (repository info)
@@ -66,6 +68,10 @@ MappedTestCase (list, an entry for each mapped Test Case)
         identifier: string, unit test case method name
         class: string, a class name containing the unit test case method   
 ```
+
+The `corpus` folder contains the parallel corpus of focal methods and test cases, as raw, tokenized, and preprocessed.
+The corpus does not contain the metadata available in `dataset`, instead is organized in a format suitable for training and evaluation of the model.
+
 
 # Citation
 
