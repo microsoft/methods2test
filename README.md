@@ -42,7 +42,7 @@ The data is organized as `dataset` and `corpus`.
 The `dataset` contains test cases mapped to their corresponding focal methods, along with a rich set of metadata.
 The dataset is stored as JSON files of the following format:
 ```yaml
-repository: (repository info)
+repository: repository info
     repo_id: int, unique identifier of the repository in the dataset
     url: string, repository URL
     language: string, programming languages of the repository
