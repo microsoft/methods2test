@@ -38,39 +38,89 @@ The rationale behind this approach is the following: since we have already match
 ## Data Format
 The data is organized as `dataset` and `corpus`.
 
+### Dataset
 The `dataset` contains test cases mapped to their corresponding focal methods, along with a rich set of metadata.
 The dataset is stored as JSON files of the following format:
 ```yaml
 Repository (repository info)
     repo_id: int, unique identifier of the repository in the dataset
     url: string, repository URL
-    stars: int, cumulative number of start on GitHub
-    updates: string, time stamp of the most recent update made to the repository
-    created: string, time stamp of the repository creation
-    fork: Boolean, whether repository is a fork
+    language: string, programming languages of the repository
+    is_fork: Boolean, whether repository is a fork
+    fork_count: int, number of forks
+    stargazer_count: int, cumulative number of start on GitHub
 MappedTestCase (list, an entry for each mapped Test Case)
-    focal_class: string, relative path (inside the repository) to file containing the focal method
+    focal_class: properties of the focal class
+        identifier: string, class name
+        superclass: string, superclass definition
+        interfaces: string, interface definition
+        fields: list, class fields
+        methods: list, class methods
+        file: string, relative path (inside the repository) to file containing the focal class
     focal_method: properties of the focal method
-        body: string, source code of the focal method
-        invocations: list of strings of all methods invoked in the file scope
-        testcase: boolean, whether the method is a test case
-        signature: string, focal method signature (including the class name)
-        parameters: string, parameter list of the focal method
         identifier: string, focal method name 
-        class: string, a class name containing the focal method  
-    test_class: string, relative path (inside the repository) to file containing the unit test case
-    test_case: properties of the unit test case
-        body: string, source code of the unit test case method
+        parameters: string, parameter list of the focal method
+        modifiers: string, method modifiers
+        return: string, return type
+        body: string, source code of the focal method
+        signature: string, focal method signature (return type + name + parameters)
+        full_signature: string, focal method signature (modified + return type + name + parameters)
+        class_method_signature: string, focal method signature (class + name + parameters)
+        testcase: boolean, whether the method is a test case
+        constructor: boolean, whether the method is a constructor
         invocations: list of strings of all methods invoked in the file scope
-        testcase: boolean, whether the method is a test case (always True for test cases)
-        signature: string, unit test case method signature (including the class name)
-        parameters: string, parameter list of the unit test case method
+    test_class:  properties of the test class containing the test case
+        identifier: string, class name
+        superclass: string, superclass definition
+        interfaces: string, interface definition
+        fields: list, class fields
+        file: string, relative path (inside the repository) to file containing the test class
+    test_case: properties of the unit test case
         identifier: string, unit test case method name
-        class: string, a class name containing the unit test case method   
+        parameters: string, parameter list of the unit test case method
+        modifiers: string, method modifiers
+        return: string, return type
+        body: string, source code of the unit test case method
+        signature: string, test case signature (return type + name + parameters)
+        full_signature: string, test case signature (modified + return type + name + parameters)
+        class_method_signature: string, test case signature (class + name + parameters)
+        testcase: boolean, whether the method is a test case
+        constructor: boolean, whether the method is a constructor
+        invocations: list of strings of all methods invoked in the file scope
 ```
 
-The `corpus` folder contains the parallel corpus of focal methods and test cases, as raw, tokenized, and preprocessed.
-The corpus does not contain the metadata available in `dataset`, instead is organized in a format suitable for training and evaluation of the model.
+### Corpus
+The `corpus` folder contains the parallel corpus of focal methods and test cases, as json, raw, tokenized, and preprocessed, suitable for training and evaluation of the model.
+The corpus is organized in different levels of focal context, incorporating information from the focal method and class within the *input sentence*, which can inform the model when generating test cases. The different levels of focal contexts are the following: 
+
+- *FM*: focal method
+- *FM_FC*: focal method + focal class name
+- *FM_FC_CO*: focal method + focal class name + constructor signatures
+- *FM_FC_MS*: focal method + focal class name + constructor signatures + public method signatures
+- *FM_FC_MS_FF*: focal method + focal class name + constructor signatures + public method signatures + public fields
+
+# Statistics
+The dataset contains 780,944 test cases mapped to their corresponding focal methods, extracted from 9,410 unique repositories (91,385 original repositories analyzed).
+
+**Total**
+- Repositories: 9,410
+- Instances: 780,944
+
+We split the dataset in training (80%), validaiton (10%), and test (10%) sets. The split is performed avoiding data leakage at repository-level, that is, all instances from a given repository will appears in a single set (e.g., in training but not in test). Duplicate pairs with same code representation have been removed.
+
+**Training**
+- Repositories: 7,440
+- Instances:    624,022
+
+**Validation**
+- Repositories: 953
+- Instances:    78,534
+
+**Test**
+- Repositories: 1,017
+- Instances:    78,388
+
+
 
 
 # Citation
