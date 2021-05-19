@@ -102,6 +102,10 @@ The corpus is organized in different levels of focal context, incorporating info
 - *FM_FC_MS*: focal method + focal class name + constructor signatures + public method signatures
 - *FM_FC_MS_FF*: focal method + focal class name + constructor signatures + public method signatures + public fields
 
+### Methods2Test v1.0
+The `methods2test-v1.0` folder contains the previous version of this dataset. More information are availble in the README within the folder.
+
+
 # Statistics
 The dataset contains 780,944 test cases mapped to their corresponding focal methods, extracted from 9,410 unique repositories (91,385 original repositories analyzed).
 
