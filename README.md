@@ -42,51 +42,54 @@ The data is organized as `dataset` and `corpus`.
 The `dataset` contains test cases mapped to their corresponding focal methods, along with a rich set of metadata.
 The dataset is stored as JSON files of the following format:
 ```yaml
-Repository (repository info)
+repository: (repository info)
     repo_id: int, unique identifier of the repository in the dataset
     url: string, repository URL
     language: string, programming languages of the repository
     is_fork: Boolean, whether repository is a fork
     fork_count: int, number of forks
     stargazer_count: int, cumulative number of start on GitHub
-MappedTestCase (list, an entry for each mapped Test Case)
-    focal_class: properties of the focal class
-        identifier: string, class name
-        superclass: string, superclass definition
-        interfaces: string, interface definition
-        fields: list, class fields
-        methods: list, class methods
-        file: string, relative path (inside the repository) to file containing the focal class
-    focal_method: properties of the focal method
-        identifier: string, focal method name 
-        parameters: string, parameter list of the focal method
-        modifiers: string, method modifiers
-        return: string, return type
-        body: string, source code of the focal method
-        signature: string, focal method signature (return type + name + parameters)
-        full_signature: string, focal method signature (modified + return type + name + parameters)
-        class_method_signature: string, focal method signature (class + name + parameters)
-        testcase: boolean, whether the method is a test case
-        constructor: boolean, whether the method is a constructor
-        invocations: list of strings of all methods invoked in the file scope
-    test_class:  properties of the test class containing the test case
-        identifier: string, class name
-        superclass: string, superclass definition
-        interfaces: string, interface definition
-        fields: list, class fields
-        file: string, relative path (inside the repository) to file containing the test class
-    test_case: properties of the unit test case
-        identifier: string, unit test case method name
-        parameters: string, parameter list of the unit test case method
-        modifiers: string, method modifiers
-        return: string, return type
-        body: string, source code of the unit test case method
-        signature: string, test case signature (return type + name + parameters)
-        full_signature: string, test case signature (modified + return type + name + parameters)
-        class_method_signature: string, test case signature (class + name + parameters)
-        testcase: boolean, whether the method is a test case
-        constructor: boolean, whether the method is a constructor
-        invocations: list of strings of all methods invoked in the file scope
+
+focal_class: properties of the focal class
+    identifier: string, class name
+    superclass: string, superclass definition
+    interfaces: string, interface definition
+    fields: list, class fields
+    methods: list, class methods
+    file: string, relative path (inside the repository) to file containing the focal class
+
+focal_method: properties of the focal method
+    identifier: string, focal method name 
+    parameters: string, parameter list of the focal method
+    modifiers: string, method modifiers
+    return: string, return type
+    body: string, source code of the focal method
+    signature: string, focal method signature (return type + name + parameters)
+    full_signature: string, focal method signature (modified + return type + name + parameters)
+    class_method_signature: string, focal method signature (class + name + parameters)
+    testcase: boolean, whether the method is a test case
+    constructor: boolean, whether the method is a constructor
+    invocations: list of strings of all methods invoked in the file scope
+
+test_class:  properties of the test class containing the test case
+    identifier: string, class name
+    superclass: string, superclass definition
+    interfaces: string, interface definition
+    fields: list, class fields
+    file: string, relative path (inside the repository) to file containing the test class
+
+test_case: properties of the unit test case
+    identifier: string, unit test case method name
+    parameters: string, parameter list of the unit test case method
+    modifiers: string, method modifiers
+    return: string, return type
+    body: string, source code of the unit test case method
+    signature: string, test case signature (return type + name + parameters)
+    full_signature: string, test case signature (modified + return type + name + parameters)
+    class_method_signature: string, test case signature (class + name + parameters)
+    testcase: boolean, whether the method is a test case
+    constructor: boolean, whether the method is a constructor
+    invocations: list of strings of all methods invoked in the file scope
 ```
 
 ### Corpus
