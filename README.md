@@ -134,7 +134,7 @@ We split the dataset in training (80%), validaiton (10%), and test (10%) sets. T
 
 ```latex
 @misc{tufano2020unit,
-    title={Unit Test Case Generation with Transformers},
+    title={Unit Test Case Generation with Transformers and Focal Context},
     author={Michele Tufano and Dawn Drain and Alexey Svyatkovskiy and Shao Kun Deng and Neel Sundaresan},
     year={2020},
     eprint={2009.05617},
