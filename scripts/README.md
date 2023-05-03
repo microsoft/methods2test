@@ -2,7 +2,7 @@ The `script` folder contains the following files:
 - `find_map_test_cases.py`: the main script to find and map test cases in a repository
 - `TestParser.py`: an utility class that parses test cases
 - `java-grammar.so`: tree-sitter Java grammar file
-
+- `libtree-sitter-java.dylib`: tree-sitter Java grammar file for macOS
 
 ## Extraction & Mapping
 To extract test cases and map them to focal methods, we can run the `find_map_test_cases.py` script, which takes the following arguments:
