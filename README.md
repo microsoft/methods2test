@@ -16,7 +16,7 @@ cd methods2test
 git lfs pull
 ```
 
-Please refer to this [web page](https://docs.microsoft.com/en-us/azure/devops/repos/git/manage-large-files?view=azure-devops) for more details about Gut LFS and working with large files.
+Please refer to this [web page](https://docs.microsoft.com/en-us/azure/devops/repos/git/manage-large-files?view=azure-devops) for more details about Git LFS and working with large files.
 
 ## What is Unit Test Case?
 Unit testing is a level of software testing where individual software components are tested with a purpose of validating that each software component performs as designed. A unit is the smallest testable part of any software. In this work, we are focusing on testing Java methods.
@@ -103,7 +103,7 @@ The corpus is organized in different levels of focal context, incorporating info
 - *FM_FC_MS_FF*: focal method + focal class name + constructor signatures + public method signatures + public fields
 
 ### Methods2Test v1.0
-The `methods2test-v1.0` folder contains the previous version of this dataset. More information are availble in the README within the folder.
+The `methods2test-v1.0` folder contains the previous version of this dataset. More information is available in the README within the folder.
 
 
 # Statistics
@@ -113,7 +113,7 @@ The dataset contains 780,944 test cases mapped to their corresponding focal meth
 - Repositories: 9,410
 - Instances: 780,944
 
-We split the dataset in training (80%), validaiton (10%), and test (10%) sets. The split is performed avoiding data leakage at repository-level, that is, all instances from a given repository will appears in a single set (e.g., in training but not in test). Duplicate pairs with same code representation have been removed.
+We split the dataset in training (80%), validation (10%), and test (10%) sets. The split is performed avoiding data leakage at repository-level, that is, all instances from a given repository will appears in a single set (e.g., in training but not in test). Duplicate pairs with same code representation have been removed.
 
 **Training**
 - Repositories: 7,440

@@ -9,6 +9,7 @@ import multiprocessing
 import tqdm
 import copy
 from TestParser import TestParser
+import platform
 
 
 
@@ -74,8 +75,12 @@ def find_map_test_cases(root, grammar_file, language, output, repo):
 		return 0, 0, 0, 0
 	
 	#Java Files
+	os_system = platform.system()
 	try:
-		result = subprocess.check_output(['find', '-name', '*.java'])
+		if os_system == "Darwin":
+				result = subprocess.check_output(['find', '.', '-iname', '*.java'])
+		else:
+				result = subprocess.check_output(['find', '-name', '*.java'])
 		java = result.decode('ascii').splitlines()
 		java = [j.replace("./", "") for j in java]
 	except:
@@ -100,6 +105,8 @@ def find_map_test_cases(root, grammar_file, language, output, repo):
 	for test in tests:
 		tests_norm = test.lower().replace("/src/test/", "/src/main/")
 		tests_norm = tests_norm.replace("test", "")
+		if os_system == "Darwin":
+			tests_norm = tests_norm.replace("./", "")
 		
 		if tests_norm in focals_norm:
 			index = focals_norm.index(tests_norm)
@@ -343,6 +350,9 @@ def main():
 	repo_git = args['repo_url']
 	repo_id = args['repo_id']
 	grammar_file = args['grammar']
+	if not os.path.isabs(grammar_file):
+			current_dir = os.getcwd()
+			grammar_file = os.path.join(current_dir, grammar_file)
 	tmp = args['tmp']
 	output = args['output']
 	
