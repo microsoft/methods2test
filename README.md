@@ -16,7 +16,7 @@ cd methods2test
 git lfs pull
 ```
 
-Please refer to this [web page](https://docs.microsoft.com/en-us/azure/devops/repos/git/manage-large-files?view=azure-devops) for more details about Gut LFS and working with large files.
+Please refer to this [web page](https://docs.microsoft.com/en-us/azure/devops/repos/git/manage-large-files?view=azure-devops) for more details about Git LFS and working with large files.
 
 ## What is Unit Test Case?
 Unit testing is a level of software testing where individual software components are tested with a purpose of validating that each software component performs as designed. A unit is the smallest testable part of any software. In this work, we are focusing on testing Java methods.
